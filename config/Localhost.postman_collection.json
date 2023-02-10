@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "a9411052-61d2-48e3-a2b7-50677a2380cf",
+		"name": "Localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16586975"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  register(\r\n   first_name:\"mayank\"\r\n    last_name:\"upa\",\r\n \t mobile:\"9001025477\",\r\n  email:\"m@gmail.com\"\r\n \t password:\"12345678\"){\r\n    id\r\n    token\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Email Address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  usercheck(email:\"m@gmail.com\")\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check mobile no",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  usercheck(mobile:\"9001025477\")\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with mobile No",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n    login(mobile:\"9001025477\"){\r\n        id\r\n        token\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login with email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n    login(email:\"m@gmail.com\",\r\n    password:\"12345678\"){\r\n        id\r\n        token\r\n    }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n    forgotpassword(email:\"m@gmail.com\")\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n    resetpassword(email:\"m@gmail.com\",forgotpassword_code:\"123456\",password:\"12345678\")\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Social Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  socialogin(\r\n    social_id:\"123456\",\r\n    first_name:\"raj\",\r\n    last_name:\"sharma\",\r\n   social_plateform:\"fb\",\r\n    profile_pic:\"\"\r\n  ){\r\n    id\r\n    first_name\r\n    token\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  updateuser(first_name:\"mohit r\"){\r\n      id\r\n      first_name\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single user detail by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n  user(user_id:1){\r\n      id\r\n      first_name\r\n      email\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Id Verification",
+			"item": [
+				{
+					"name": "Submit Id verification doc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  submitidverification(\r\n    first_name_as_id:\"mayank\",\r\n    last_name_as_id:\"sharma\",\r\n    photo_id_image:\"photo\",\r\n    doc_type:\"dl2\"\r\n  )\r\n  {\r\n    id\r\n    user_id\r\n    first_name_as_id\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifciation doc status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query{\r\n  verificationdetail(user_id:1,doc_type:\"dl\"){\r\n    id\r\n    user_id\r\n    first_name_as_id\r\n    last_name_as_id\r\n    photo_id_image\r\n    remark\r\n    status\r\n    \r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip",
+			"item": [
+				{
+					"name": "Create Trip without stop First step",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  createtripstepone(\r\n      driver_id:1,\r\n      from_location:\"office\",\r\n      from_lat:\"26.772091999999997\",\r\n      from_lng:\"75.6789513\",\r\n      destination_address:\"ifc pizza\",\r\n      destination_lat:\"26.8973525\",\r\n      destination_lng:\"75.71287389999999\",\r\n      no_of_seat:2\r\n      ){\r\n    id\r\n    driver_id\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Trip with Stop First Step",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  createtripstepone(\r\n      driver_id:1,\r\n      from_location:\"Malviya Nagar,Jaipur\",\r\n      from_lat:\"26.8503065\",\r\n      from_lng:\"75.8179064\",\r\n      destination_address:\"New Delhi Railway Station\",\r\n      destination_lat:\"28.6445167\",\r\n      destination_lng:\"77.2193459,17\",\r\n       no_of_seat:2,\r\n      stop:[{\r\n          destination_address:\"Agra\",\r\n          destination_lat:\"27.165440\",\r\n          destination_lng:\"78.054520\",\r\n          price:250\r\n      },\r\n      {\r\n          destination_address:\"Rewari\",\r\n          destination_lat:\"28.192762\",\r\n          destination_lng:\"76.623940\",\r\n          price:250\r\n      }\r\n      ]\r\n\r\n      ){\r\n    id\r\n    driver_id\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Trip step 2 without recersive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  createtripstetwo(\r\n      driver_id:1,\r\n      trip_id:8,\r\n      trip_type:\"2\",\r\n      trip_schedule:\"1\",\r\n      departure_date_time:\"2022-11-30 19:30:12\",\r\n      return_date_time:\"2022-12-01 19:30:12\"\r\n      ){\r\n    id\r\n    driver_id\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create step 2 with recurisve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  createtripstetwo(\r\n      driver_id:1,\r\n      trip_id:9,\r\n      trip_type:\"2\",\r\n      trip_schedule:\"1\",\r\n      departure_date_time:\"2022-11-30 19:30:12\",\r\n      return_date_time:\"19:30:12\",\r\n      recurring:[{\r\n          trip_date:\"2022-12-05 19:30:12\"\r\n      },\r\n      {\r\n          trip_date:\"2022-12-07 19:30:12\"\r\n      }]\r\n      ){\r\n    id\r\n    driver_id\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Trip step 3 & update trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation{\r\n  updatetrip(vehicle_id:1,driver_id:1,trip_id:8){\r\n      id\r\n     \r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{HOST_URL}}",
+							"host": [
+								"{{HOST_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
